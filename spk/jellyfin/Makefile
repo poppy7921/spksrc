@@ -27,6 +27,6 @@ SERVICE_PORT_TITLE = Jellyfin (HTTP)
 ADMIN_PORT = $(SERVICE_PORT)
 
 # no PPC support
-UNSUPPORTED_ARCHS = $(PPC_ARCHES)
+UNSUPPORTED_ARCHS = $(PPC_ARCHES) $(ARM5_ARCHES)
 
 include ../../mk/spksrc.spk.mk
