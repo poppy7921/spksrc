@@ -16,13 +16,10 @@ CONFIGURE_TARGET = none
 COMPILE_TARGET = jellyfin_compile_target
 INSTALL_TARGET = jellyfin_install_target
 
-UNSUPPORTED_ARCHS = $(PPC_ARCHES)
+UNSUPPORTED_ARCHS = $(PPC_ARCHES) $(ARM5_ARCHES)
 
 include ../../mk/spksrc.cross-cc.mk
 
-ifeq ($(findstring $(ARCH),$(ARM5_ARCHES)),$(ARCH))
-DOTNET_ARCH = armel
-endif
 ifeq ($(findstring $(ARCH),$(ARM7_ARCHES)),$(ARCH))
 DOTNET_ARCH = arm
 endif
