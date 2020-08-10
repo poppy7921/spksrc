@@ -11,7 +11,7 @@ DESCRIPTION = "Jackett works as a proxy server. It translates queries from apps 
 RELOAD_UI = yes
 DISPLAY_NAME = Jackett
 STARTABLE = yes
-CHANGELOG = "Add workaround for mono bug with armv5/88f6281"
+CHANGELOG = "Compile using .NET"
 HOMEPAGE = https://github.com/Jackett/Jackett
 LICENSE = GPLv2
 
@@ -29,7 +29,7 @@ ADMIN_PORT = $(SERVICE_PORT)
 POST_STRIP_TARGET = jackett_extra_install
 
 REQUIRED_DSM = 5.0
-# no PPC support for mono, see cross/mono/Makefile for details
+# no PPC support for .net, see cross/dotnet/Makefile for details
 UNSUPPORTED_ARCHS = $(PPC_ARCHES)
 
 BUSYBOX_CONFIG = usrmng daemon
