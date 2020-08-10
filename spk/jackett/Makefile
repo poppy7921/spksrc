@@ -1,12 +1,10 @@
 SPK_NAME = jackett
-SPK_VERS = 0.14.485
+SPK_VERS = 0.16.979
 SPK_REV = 11
 SPK_ICON = src/jackett.png
 DSM_UI_DIR = app
 
 DEPENDS = cross/busybox cross/curl cross/$(SPK_NAME)
-# depend on mono 5.4 for BTLS HttpWebClient support
-SPK_DEPENDS = "mono>=5.4"
 
 MAINTAINER = m4tt075
 DESCRIPTION = "Jackett works as a proxy server. It translates queries from apps into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. Jackett is a single repository of maintained indexer scraping and translation logic - removing the burden from other apps."

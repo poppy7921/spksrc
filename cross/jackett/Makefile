@@ -1,11 +1,11 @@
 PKG_NAME = Jackett
-PKG_VERS = 0.14.485
+PKG_VERS = 0.16.979
 PKG_EXT = tar.gz
-PKG_DIST_NAME = $(PKG_NAME).Binaries.Mono.$(PKG_EXT)
+PKG_DIST_NAME = $(PKG_NAME).Binaries.LinuxAMDx64.$(PKG_EXT)
 PKG_DIST_FILE = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/Jackett/Jackett/releases/download/v$(PKG_VERS)
 PKG_DIR = jackett
-
+# https://github.com/Jackett/Jackett/archive/v0.16.979.tar.gz
 DEPENDS =
 
 HOMEPAGE = https://github.com/Jackett/Jackett
@@ -14,10 +14,12 @@ LICENSE  = GNU GPL v2
 
 CONFIGURE_TARGET = nop
 COMPILE_TARGET = nop
-INSTALL_TARGET = myInstall
+INSTALL_TARGET = jackett_install
 
 include ../../mk/spksrc.cross-cc.mk
 
-myInstall:
+jackett_install:
 	mkdir -p $(STAGING_INSTALL_PREFIX)/share/$(PKG_DIR)
 	tar -cf - -C $(WORK_DIR)/$(PKG_NAME) . | tar -xf - -C $(STAGING_INSTALL_PREFIX)/share/$(PKG_DIR)
+	# dotnet publish Jackett.Server -f netcoreapp3.1 --self-contained -r linux-x64 -c Debug
+	# ./Jackett.Server/bin/Debug/netcoreapp3.1/linux-x64/jackett
